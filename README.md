@@ -14,7 +14,72 @@ Useful for evaluating different BLAST/MCL thresholds (e.g., `hit_4`, `hit_10`, `
 
 ---
 
-## 📂 Input Structure
+##  Input Structure
 
 The script assumes the following folder structure:
+
+project_root/
+├── hit_4/
+│ ├── cluster001.fa
+│ ├── cluster002.fa
+│ └── ...
+├── hit_10/
+│ └── ...
+├── hit_50/
+│ └── ...
+├── hit_100/
+│ └── ...
+
+
+Each `.fa` file is a cluster containing multiple sequences from different taxa.
+
+---
+
+## Usage
+
+1. **Install Biopython (if needed):**
+
+```bash
+pip install biopython
+
+
+Edit the script to match your dataset:
+
+Set the correct TOTAL_TAXA near the top of the script.
+
+TOTAL_TAXA = 250  # <-- Set your actual number of taxa
+
+Adjust FASTA header parsing if necessary:
+
+Run the script:
+python cluster_occupancy_analysis.py
+Output
+For each cluster set, the script prints:
+
+hit_10
+  Total clusters: 4727
+  Mean occupancy per cluster: 43.27%
+  Clusters with ≥10% of taxa: 4710
+  Clusters with ≥50% of taxa: 1450
+  Clusters with ≥75% of taxa: 1
+
+
+ Notes & Tips
+Works with .fa, .fasta, .fas, .aln files
+
+Designed to be minimal and easily modifiable
+
+Can be extended to output CSVs or visualizations
+
+ License
+MIT License. Do whatever you want, but cite your favorite spider if you publish something cool 🕸️.
+
+ Author
+Tiago Belintani
+Evolutionary Bioinformatician
+2025 
+
+
+
+
 
